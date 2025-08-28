@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulario de Contacto - LOS SERRANOS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 30px;
+      color: #333;
+    }
+    form {
+      max-width: 650px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #d72631;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+    button {
+      background-color: #d72631;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 16px;
+      margin-top: 25px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c51f29;
+    }
+    .reservacion-campos {
+      display: none;
+      margin-top: 10px;
+      padding: 15px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+  </style>
+  <script>
+    function mostrarCamposReservacion(select) {
+      const campos = document.getElementById('campos-reservacion');
+      if (select.value === 'Reservación') {
+        campos.style.display = 'block';
+      } else {
+        campos.style.display = 'none';
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <form action="https://formspree.io/f/mqalvrgy" method="POST">
+    <h2>Contáctanos</h2>
+
+    <!-- Datos básicos -->
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="telefono">Teléfono de contacto:</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="Opcional">
+
+    <!-- Tipo de contacto -->
+    <label for="asunto">Tipo de contacto:</label>
+    <select id="asunto" name="asunto" onchange="mostrarCamposReservacion(this)" required>
+      <option value="">Selecciona una opción...</option>
+      <option value="Reservación">Reservación</option>
+      <option value="Sugerencia">Sugerencia</option>
+      <option value="Comentario">Comentario</option>
+      <option value="Queja">Queja</option>
+      <option value="Otro">Otro</option>
+    </select>
+
+    <!-- Campos para reservación -->
+    <div id="campos-reservacion" class="reservacion-campos">
+      <label for="fecha">Fecha de la reservación:</label>
+      <input type="date" id="fecha" name="fecha">
+
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" name="hora">
+
+      <label for="personas">Número de personas:</label>
+      <input type="number" id="personas" name="personas" min="1">
+    </div>
+
+    <!-- Mensaje -->
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+    <button type="submit">Enviar mensaje</button>
+  </form>
+
+</body>
+</html>

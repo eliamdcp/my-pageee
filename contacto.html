@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LOS SERRANOS - Contacto</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; }
+    header { background: #d72631; color: white; padding: 20px; text-align: center; font-size: 2em; }
+    nav { padding: 15px; text-align: center; background: #ffd500; }
+    nav select { padding: 10px 15px; font-size: 1em; }
+    section { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
+    section h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+
+<header>LOS SERRANOS - Menú Mexicano</header>
+<nav>
+  <select onchange="if (this.value) window.location = this.value;">
+    <option value="">Selecciona sección…</option>
+    <option value="index.html">Platillos</option>
+    <option value="bebidas.html">Bebidas</option>
+    <option value="postres.html">Postres</option>
+    <option value="contacto.html" selected>Contacto</option>
+  </select>
+</nav>
+
+<section>
+  <h2>Contacto</h2>
+  <p>¿Tienes preguntas o deseas reservar? Escríbenos:</p>
+  <ul>
+    <li>Email: contacto@losserranos.mx</li>
+    <li>Teléfono: (55) 1234 5678</li>
+    <li>Dirección: Calle Sabor #123, Ciudad de México</li>
+  </ul>
+</section>
+
+</body>
+</html>
